@@ -115,6 +115,7 @@ class RapiDOS(SplitDOS):
         pdos_data = {}
         for i in range(len(self.atoms)):
             pdos_data[i] = np.loadtxt('DOS'+str(i+1), skiprows=0)
+
         return self.pdos_columns, pdos_data
 
     def get_bandgap(self):
@@ -268,7 +269,6 @@ class RapiDOS(SplitDOS):
                 if e + o not in color_dict:
                     color_dict.update({e+o: colors[j]})
                     j += 1
-        print(color_dict)
         # Plots
         fig = plt.figure(figsize=(10.0, 6.0))  # Create figure.
 
