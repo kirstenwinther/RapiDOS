@@ -128,7 +128,7 @@ class RapiDOS(SplitDOS):
 
         converged = False
         while not converged:
-            print(arg_fermi_lower, arg_fermi_upper)
+
             occup_lower = (total_dos[:, 1] + total_dos[:, 2])[arg_fermi_lower]
             occup_upper = (total_dos[:, 1] + total_dos[:, 2])[arg_fermi_upper]
 
@@ -257,7 +257,7 @@ class RapiDOS(SplitDOS):
         if not elements:
             elements = {}
             for e in all_elements:
-                elements.update({e: "all"})
+                elements.update({e: ["all"]})
 
         color_dict = {'Oall': "red", 'H': "grey", 'N': "blue", 'S': 'yellow'}
         colors = ['seagreen', 'orange', 'skyblue', 'pink',
@@ -288,7 +288,7 @@ class RapiDOS(SplitDOS):
                 idx = [i for i in range(len(e)) if e[i].isdigit()][0]
 
                 atom_indices = [int(e[idx:])]
-                print(atom_indices)
+
             else:
                 atom_indices = [i for i, s in enumerate(symbols) if s == e]
 
