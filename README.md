@@ -4,8 +4,15 @@ Code for plotting DOS and PDOS for VASP.
 
 Run in directory with VASP output files:
 
+
+$ rapidos plot --help
+$ rapidos bandcenter --help
+
+Or load in Python
+
 ```py
-R = RapoDOS()
+from rapidos import RapiDOS
+R = RapiDOS()
 # Get dos arrays:
 columns, dos = R.get_total_dos()
 
