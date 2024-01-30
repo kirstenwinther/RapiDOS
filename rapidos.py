@@ -158,8 +158,7 @@ class RapiDOS(SplitDOS):
         pdos_columns, pdos_data = self.get_pdos()
 
         ix = dos_columns.index('Energy (E-Ef)')
-        #iy = dos_columns.index('Total DOS Spin Up')
-        print(xlim[0])
+
         energy = total_dos[:, ix]
         idx1 = np.min(np.argwhere(energy >= xlim[0]))
         idx2 = np.max(np.argwhere(energy <= xlim[1]))
