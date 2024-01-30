@@ -17,11 +17,11 @@ setuptools.setup(
     long_description=readme,
     license='GPL-3.0',
 
-    packages=[
-        'rapidos',
-    ],
-    package_dir={'rapidos': 'rapidos'},
-    entry_points={'console_scripts': ['rapidos=rapidos.cli:cli']},
+    #packages=[
+    #    'rapidos',
+    #],
+    #package_dir={'rapidos': 'rapidos'},
+    entry_points={'console_scripts': ['rapidos=cli:cli']},
     install_requires=requirements,
     python_requires='>=3.6',
     classifiers=[

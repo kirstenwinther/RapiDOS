@@ -5,7 +5,7 @@ from yaml import Dumper
 import click
 import six
 
-from .rapidos import RapiDOS
+from rapidos import RapiDOS
 
 @click.group()
 @click.version_option()
@@ -35,7 +35,12 @@ Accepted input: \n
 """,
               show_default=True)
 
-def plot(orbitals):
+@click.option('--structure-file','-s',
+              type=str,
+              default='CONTCAR',
+              show_default=True)
+
+def plot(orbitals, structure_file):
     """Plot total or projected dos. To plot total dos:
 
     "rapidos plot".
@@ -44,7 +49,7 @@ def plot(orbitals):
 
     """
 
-    RP = RapiDOS()
+    RP = RapiDOS(structure_file=structure_file)
     if not orbitals:
         RP.plot_dos()
     else:

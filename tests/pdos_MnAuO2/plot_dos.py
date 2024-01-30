@@ -1,4 +1,4 @@
-from rapiDOS import RapiDOS
+from rapidos import RapiDOS
 from sys import argv
 
 xlim = [-15, 15]

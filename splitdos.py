@@ -1,3 +1,4 @@
+import numpy as np
 from ase.io import read
 
 
@@ -8,7 +9,8 @@ class SplitDOS:
     URL: http://theory.cm.utexas.edu/vtsttools/scripts.html
     """
 
-    def __init__(self):
+    def __init__(self, structure_file='CONTCAR'):
+        self.structure_file = structure_file
         self.atoms = self.read_posfile()
 
         with open("DOSCAR", 'r') as f:
@@ -20,10 +22,10 @@ class SplitDOS:
 
     def read_posfile(self):
         try:
-            atoms = read('final_with_calculator.json') #'CONTCAR')
+            atoms = read(self.structure_file)
         except IOError:
             print(
-                "[__main__]: Couldn't open input file POSCAR, atomic positions will not be written...\n")
+                "[__main__]: Couldn't open {} input file, atomic positions will not be written...\n".format(self.structure_file))
             atoms = None
         return atoms
 

@@ -4,7 +4,7 @@ import pandas as pd
 import pylab as plt
 from ase.io import read
 import json
-from .splitdos import SplitDOS
+from splitdos import SplitDOS
 
 """
 rapiDOS v.0.5.1
@@ -22,14 +22,15 @@ class RapiDOS(SplitDOS):
 
     """
 
-    def __init__(self):
+    def __init__(self, structure_file='CONTCAR'):
         """Get general information of the system"""
-        self.atoms = read('CONTCAR')  # Open CONTCAR file
+        self.input = structure_file
+        self.atoms = read(self.input)  # Open CONTCAR file
         self.ispin = self.get_spin()
         self.kblock = self.get_kblock()
 
         # Call SplitDOS
-        super().__init__()
+        super().__init__(structure_file=structure_file)
         self.write_dos0()
         if self.ispin == 2:
             self.write_spin()
@@ -38,7 +39,7 @@ class RapiDOS(SplitDOS):
 
     def get_spin(self):
 
-        incar_file = open("OUTCAR", "r") #open("INCAR", "r")
+        incar_file = open("OUTCAR", "r")
         ispin = 1  # Non spin polarised calculations.
         for line in incar_file:
             if re.match("(.*)ISPIN(.*)2", line):
