@@ -290,7 +290,7 @@ class RapiDOS(SplitDOS):
         # plt.axvline(x=[center], color='g', linestyle='--', linewidth=1.2,
         #            label='band center={}'.format(np.round(center, 2)))
         plt.legend()
-        plt.annotate('Formula = ' + self.atoms.get_chemical_formula(mode='metal'), (0,0.85), xycoords='figure fraction')
+        plt.annotate('Formula = ' + self.atoms.get_chemical_formula(mode='metal'), (0.2,0.85), xycoords='figure fraction')
         plt.xlabel('(E - E$_F$) [eV]')  # x axis label.
         plt.ylabel('DOS [states eV$^{-1}$]')  # x axis label.
         plt.title(title)
