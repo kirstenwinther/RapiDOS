@@ -14,16 +14,16 @@ Or load in Python
 from rapidos import RapiDOS
 R = RapiDOS()
 # Get dos arrays:
-columns, dos = R.get_total_dos()
+column_names, dos_data = R.get_total_dos()
 
-# Plot dos directly in pylab
+# Alternatively, plot dos directly in pylab:
 R.plot_dos(xlim, title)
 
 
-# Get entire pdos data:
-R.get_pdos()
+# Get entire projected (pdos) data:
+column_names, pdos_data = R.get_pdos()
 
-# Plot projected dos for selected atoms and/or orbitals:
+# Or plot pdos directly for selected atoms and/or orbitals:
 R.plot_pdos(elements={'Fe': ['d'],
 	             'O': ['p']},
 		     xlim,
