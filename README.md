@@ -24,14 +24,16 @@ R.plot_dos(xlim, title)
 column_names, pdos_data = R.get_pdos()
 
 # Or plot pdos directly for selected atoms and/or orbitals:
-R.plot_pdos(elements={'Fe': ['d'],
-	          					'O': ['p']},
-		     		xlim,
-		     		title)
+R.plot_pdos(
+			elements={'Fe': ['d'],
+                'O': ['p']},
+		  xlim,
+		  title)
 
 # To calculate the band center of a specific projection:
 
-R.get_pdos_center(elements={'Fe': ['d'],
-	          								'O': ['p']},
-		     					xlim)
+R.get_pdos_center(
+       elements={'Fe': ['d'],
+                 'O': ['p']},
+       xlim)
 ```
