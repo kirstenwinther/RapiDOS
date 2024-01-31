@@ -1,14 +1,15 @@
 Code for plotting DOS and PDOS for VASP.
 
-## Getting dos from VASP output
+## Using the rapidos CLI
 
-Run in directory with VASP output files:
+Go to directory with VASP output files and run `rapidos` from the	command line:
+
+		$ rapidos plot --help
+
+		$ rapidos bandcenter --help
 
 
-$ rapidos plot --help
-$ rapidos bandcenter --help
-
-Or load in Python
+## Using in a Python script:
 
 ```py
 from rapidos import RapiDOS
@@ -19,15 +20,18 @@ column_names, dos_data = R.get_total_dos()
 # Alternatively, plot dos directly in pylab:
 R.plot_dos(xlim, title)
 
-
 # Get entire projected (pdos) data:
 column_names, pdos_data = R.get_pdos()
 
 # Or plot pdos directly for selected atoms and/or orbitals:
 R.plot_pdos(elements={'Fe': ['d'],
-	             'O': ['p']},
-		     xlim,
-		     title)
+	          					'O': ['p']},
+		     		xlim,
+		     		title)
 
+# To calculate the band center of a specific projection:
+
+R.get_pdos_center(elements={'Fe': ['d'],
+	          								'O': ['p']},
+		     					xlim)
 ```
-
